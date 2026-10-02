@@ -1,52 +1,53 @@
 {:paths ["src" "test" "resources"]
  :deps
- {org.clojure/clojure {:mvn/version "1.12.4"}
+ {org.clojure/clojure {:mvn/version "1.12.6"}
 
   ;; Application setup
-  com.lambdaisland/config {:mvn/version "0.10.37"}
-  com.lambdaisland/makina {:mvn/version "0.7.32"}
-  com.lambdaisland/cli    {:mvn/version "1.27.121"}
+  com.lambdaisland/config {:mvn/version "0.15.56"}
+  com.lambdaisland/makina {:mvn/version "0.8.37"}
+  com.lambdaisland/cli    {:mvn/version "1.31.133"}
 
   ;; Logging
   com.lambdaisland/log4j2 {:mvn/version "0.2.6"}
 
   ;; HTTP
-  ring/ring-jetty-adapter             {:mvn/version "1.15.3"}
-  metosin/reitit-ring                 {:mvn/version "0.10.0"}
-  metosin/reitit-middleware           {:mvn/version "0.10.0"}
-  metosin/muuntaja                    {:mvn/version "0.6.11"}
-  fi.metosin/muuntaja-charred         {:mvn/version "0.6.11"}
-  metosin/reitit-malli                {:mvn/version "0.10.0"}
-  fi.metosin/reitit-openapi           {:mvn/version "0.10.0"}
+  ring/ring-jetty-adapter             {:mvn/version "1.15.5"}
+  metosin/reitit-ring                 {:mvn/version "0.11.0"}
+  metosin/reitit-middleware           {:mvn/version "0.11.0"}
+  metosin/muuntaja                    {:mvn/version "0.6.12"}
+  fi.metosin/muuntaja-charred         {:mvn/version "0.6.12"}
+  metosin/reitit-malli                {:mvn/version "0.11.0"}
+  fi.metosin/reitit-openapi           {:mvn/version "0.11.0"}
   com.lambdaisland/ring-redis-session {:mvn/version "3.4.126"}
   ring/ring-anti-forgery              {:mvn/version "1.4.0"}
   hato/hato                           {:mvn/version "1.0.0"}
 
   ;; Database
-  org.postgresql/postgresql         {:mvn/version "42.7.8"}
-  com.github.seancorfield/next.jdbc {:mvn/version "1.3.1086"}
-  com.github.seancorfield/honeysql  {:mvn/version "2.7.1364"}
-  com.zaxxer/HikariCP               {:mvn/version "7.0.2"}
+  org.postgresql/postgresql         {:mvn/version "42.7.13"}
+  com.github.seancorfield/next.jdbc {:mvn/version "1.3.1118"}
+  com.github.seancorfield/honeysql  {:mvn/version "2.7.1479"}
+  com.zaxxer/HikariCP               {:mvn/version "7.1.0"}
 
   ;; Cryptography
-  com.nimbusds/nimbus-jose-jwt                 {:mvn/version "10.7"}
-  com.google.crypto.tink/tink                  {:mvn/version "1.20.0"}
+  com.nimbusds/nimbus-jose-jwt                 {:mvn/version "10.10"}
+  com.google.crypto.tink/tink                  {:mvn/version "1.23.0"}
   org.conscrypt/conscrypt-openjdk$linux-x86_64 {:mvn/version "2.5.2"}
   com.password4j/password4j                    {:mvn/version "1.8.4"}
   dev.samstevens.totp/totp                     {:mvn/version "1.7.1"}
 
   ;; Formats and utilities
-  metosin/malli                       {:mvn/version "0.20.0"}
-  com.cnuernber/charred               {:mvn/version "1.037"}
-  danlentz/clj-uuid                   {:mvn/version "0.2.0"}
-  org.clj-commons/pretty              {:mvn/version "3.6.7"}
+  metosin/malli                       {:mvn/version "0.20.2"}
+  com.cnuernber/charred               {:mvn/version "1.042"}
+  danlentz/clj-uuid                   {:mvn/version "0.2.5"}
+  org.clj-commons/pretty              {:mvn/version "3.9.0"}
   com.lambdaisland/hiccup             {:mvn/version "0.14.67"}
   lambdaisland/uri                    {:mvn/version "1.19.155"}
   com.lambdaisland/ornament           {:mvn/version "1.17.150"}
   clojure.java-time/clojure.java-time {:mvn/version "1.4.3"}
 
   ;; Email
-  toyokumo/tarayo {:mvn/version "0.2.8"}
+  toyokumo/tarayo {:mvn/version "0.2.9"}
+  
   org.biscuitsec/biscuit {:mvn/version "4.0.1"}}
 
  :aliases
@@ -56,15 +57,15 @@
 
   :test
   {:extra-paths ["test"]
-   :extra-deps  {org.clojure/tools.gitlibs                       {:mvn/version "2.6.212"}
+   :extra-deps  {org.clojure/tools.gitlibs                       {:mvn/version "2.6.217"}
                  lambdaisland/kaocha                             {:mvn/version "1.91.1392"}
                  ring/ring-mock                                  {:mvn/version "0.6.2"}
-                 nubank/matcher-combinators                      {:mvn/version "3.9.2"}}}
+                 nubank/matcher-combinators                      {:mvn/version "3.11.0"}}}
 
   :bouncycastle
-  {:extra-deps {org.bouncycastle/bcprov-jdk18on {:mvn/version "1.83"}}}
+  {:extra-deps {org.bouncycastle/bcprov-jdk18on {:mvn/version "1.86"}}}
 
   :tools.build
   {:extra-deps
-   {io.github.clojure/tools.build                    {:mvn/version "0.10.12"}
-    io.github.seancorfield/build-uber-log4j2-handler {:git/sha "87601535de30194706d91d825aea2acc6e839b47"}}}}}
+   {io.github.clojure/tools.build                    {:mvn/version "0.10.14"}
+    io.github.seancorfield/build-uber-log4j2-handler {:git/sha "162d4a9c5f3bf6007008be1abe994d2ab36c9c95"}}}}}
