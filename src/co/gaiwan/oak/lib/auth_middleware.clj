@@ -77,7 +77,6 @@
           totp-cred   (when identity (credential/find-one db {:identity-id identity-id :type credential/type-totp}))
           pwd-valid?  (and pwd-auth pwd-cred (before-or-equal (:credential/updated-at pwd-cred) (:created-at pwd-auth)))
           totp-valid? (and totp-auth totp-cred (before-or-equal (:credential/updated-at totp-cred) (:created-at totp-auth)))]
-
       (if pwd-valid?
         (if-not totp-cred
           (h (assoc req :identity identity))

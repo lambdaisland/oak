@@ -127,10 +127,10 @@
   (let [{:keys [client_id scope] :as params} (:query parameters)
         identity-id (:identity session)]
     (or
-     (when (get-in req [:query-params "debug"])
-       ;; test the uri with client_id, scope, debug query-string
-       (let [oauth-client (oauth-client/find-by-client-id db client_id)]
-         (permission-dialog-response oauth-client scope params req)))
+     ;; (when (get-in req [:query-params "debug"])
+     ;;   ;; test the uri with client_id, scope, debug query-string
+     ;;   (let [oauth-client (oauth-client/find-by-client-id db client_id)]
+     ;;     (permission-dialog-response oauth-client scope params req)))
      (pre-client-checks params)
      (if-let [oauth-client (oauth-client/find-by-client-id db client_id)]
        (or
@@ -447,27 +447,27 @@
 (defn component [opts]
   {:routes
    [["/.well-known/oauth-authorization-server"
-     {:name :oauth/authorization-server-metadata
+     {:name       :oauth/authorization-server-metadata
       :auth-claim :public
-      :get #'GET-authorization-server-metadata}]
+      :get        #'GET-authorization-server-metadata}]
     ["/oauth" {:openapi {:tags ["oauth"]}}
-     ["/authorize" {:name :oauth/authorize
-                    :auth-claim :basic
+     ["/authorize" {:name        :oauth/authorize
+                    :auth-claim  :open
                     :html/layout layout/layout
-                    :middleware [hiccup-mw/wrap-render]
-                    :get #'GET-authorize
-                    :post #'POST-authorize}]
+                    :middleware  [hiccup-mw/wrap-render]
+                    :get         #'GET-authorize
+                    :post        #'POST-authorize}]
      ["/token" {}
-      ["" {:name :oauth/token
+      ["" {:name       :oauth/token
            :auth-claim :api
-           :post #'POST-exchange-token}]
+           :post       #'POST-exchange-token}]
       #_["/revoke" {:post {}}]]
 
      #_["/client" {}
         ["/register"
          ["" {:post {:handler #'POST-register-client}}]
-         ["/:client-id" {:get {}
-                         :put {}
+         ["/:client-id" {:get    {}
+                         :put    {}
                          :delete {}}]]]]]})
 
 (comment

@@ -7,7 +7,7 @@
       (println e)))
   ((requiring-resolve 'co.gaiwan.oak.app.config/print-table)))
 
-(defn refresh []
+(defn reset []
   ((requiring-resolve 'clojure.tools.namespace.repl/set-refresh-dirs)
    (clojure.java.io/file "src")
    (clojure.java.io/file "test"))
